@@ -1,0 +1,59 @@
+/* Header.css */
+
+/* Main container */
+.main-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+  /* Left side */
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .title {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .title-name {
+    font-size: 26px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px;
+  }
+  
+  .title-name span {
+    text-decoration: underline;
+  }
+
+  
+  /* Right side */
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  
+  .button button {
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: 0.5px solid #000;
+    background: none;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .button button:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  
