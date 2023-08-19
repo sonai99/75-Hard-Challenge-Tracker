@@ -1,0 +1,51 @@
+/* Rules.css */
+.rules-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.rules-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns in the first row */
+  gap: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Add media query to change grid columns for smaller screens */
+@media (max-width: 768px) {
+  .rules-list {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns in the second row */
+  }
+}
+
+li {
+  margin: 0;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.rules-list li::before {
+  content: "\2022"; /* Bullet point */
+  margin-right: 8px;
+}
+
+li:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Add more styles as needed */
