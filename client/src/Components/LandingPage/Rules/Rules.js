@@ -1,41 +1,26 @@
-// Rules.js
-import React from 'react';
-import './Rules.css';
+import React from "react";
+import "./Rules.css";
+
+const rulesData = [
+  "Make a diet and stick to it",
+  "Read atleast 10 Pages from a Book",
+  "Do an indoor workout [atleast 45 mins]",
+  "Do an outdoor workout [atleast 45 mins]",
+  "Do Not consume any alcohol/smoking/porn",
+  "Upload a daily progress pic",
+  "Drink 1 gallon of water",
+  "Update in our website daily without miss"
+];
 
 const Rules = () => {
   return (
     <div className="rules-container">
-        <h1 className='title'>RULES</h1>
-      <div className="checkboxes">
-        <div className="column">
-          <label className="checkbox-label">
-            <input type="checkbox" className="checkbox" />
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolorum corrupti  1 4
-          </label>
-          <label className="checkbox-label">
-            <input type="checkbox" className="checkbox" />
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolorum corrupti  1 2
-          </label>
-          <label className="checkbox-label">
-            <input type="checkbox" className="checkbox" />
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolorum corrupti  1 3
-          </label>
-        </div>
-        <div className="column">
-          <label className="checkbox-label">
-            <input type="checkbox" className="checkbox" />
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolorum corrupti  1 4
-          </label>
-          <label className="checkbox-label">
-            <input type="checkbox" className="checkbox" />
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolorum corrupti  1 5
-          </label>
-          <label className="checkbox-label">
-            <input type="checkbox" className="checkbox" />
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolorum corrupti  1 6
-          </label>
-        </div>
-      </div>
+      <h2>Challenge Rules</h2>
+      <ul className="rules-list">
+        {rulesData.map((rule, index) => (
+          <li key={index}>{rule}</li>
+        ))}
+      </ul>
     </div>
   );
 };
