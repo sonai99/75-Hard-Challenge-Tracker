@@ -5,6 +5,8 @@ import TaskPage from "./Components/TaskPage/TaskPage";
 import Login from "./Components/AuthPage/Login/Login";
 import Signup from "./Components/AuthPage/Signup/Signup";
 import Header from "./Components/LandingPage/Header/Header";
+import TotalDaysList from "./Components/TaskPage/TotalDaysList/TotalDaysList";
+import IndividualDaysTask from "./Components/TaskPage/IndividualDaysTask/IndividualDaysTask";
 
 function App() {
   return (
@@ -15,7 +17,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/tasks" element={<TaskPage />} />
+        <Route path="/day/:dayNumber" element={<TotalDaysList />} />
+        <Route path="/day/:dayNumber/tasks" element={<IndividualDaysTask />} />
       </Routes>
+
       {/* <LandingPage /> */}
     </div>
   );

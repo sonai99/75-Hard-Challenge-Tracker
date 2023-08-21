@@ -1,26 +1,33 @@
-import React, { useState } from "react";
-import "./TotalDaysList.css";
-// import TaskPage from "./TaskPage"; // Import the TaskPage component
-import IndividualDaysTask from "../IndividualDaysTask/IndividualDaysTask";
+  import React, { useState } from "react";
+  import IndividualDaysTask from "../IndividualDaysTask/IndividualDaysTask";
+  import { Link } from "react-router-dom";
+  import "./TotalDaysList.css";
 
-const TotalDaysList = () => {
-  const totalDays = 75; // Change this to the total number of days
-  const [selectedDay, setSelectedDay] = useState(null);
+  const TotalDaysList = () => {
+    const totalDays = 75;
+    const [selectedDay, setSelectedDay] = useState(null);
 
-  return (
-    <div className="total-days-list">
-      {Array.from({ length: totalDays + 1 }, (_, index) => (
-        <div
-          className={`day ${selectedDay === index ? "active" : ""}`}
-          key={index}
-          onClick={() => setSelectedDay(index)}
-        >
-          {selectedDay === index && <IndividualDaysTask dayNumber={index} />}
-          Day {index}
-        </div>
-      ))}
-    </div>
-  );
-};
+    const handleDayClick = (index) => {
+      setSelectedDay(index === selectedDay ? null : index);
+    };
 
-export default TotalDaysList;
+    return (
+      <div className="total-days-list">
+        {Array.from({ length: totalDays + 1 }, (_, index) => (
+          <Link
+            to={`/day/${index}/tasks`}
+            key={index}
+            className={`day ${selectedDay === index ? "active" : ""}`}
+            onClick={() => handleDayClick(index)}
+          >
+            Day {index}
+          </Link>
+        ))}
+        {selectedDay !== null && (
+          <IndividualDaysTask dayNumber={selectedDay} key={selectedDay} />
+        )}
+      </div>
+    );
+  };
+
+  export default TotalDaysList;

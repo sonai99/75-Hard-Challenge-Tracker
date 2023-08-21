@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./IndividualDaysTask.css";
+import { useParams } from "react-router";
 
 const initialChallenges = [
   "Followed my diet",
@@ -12,11 +13,36 @@ const initialChallenges = [
 ];
 
 const IndividualDaysTask = () => {
-  const [completedChallenges, setCompletedChallenges] = useState([]);
+  // const localStorageKey = `completedChallenges_day${dayNumber}`;
+  const { dayNumber } = useParams(); // Extract dayNumber from the URL
+  const localStorageKey = `completedChallenges_day${dayNumber}`;
+
+  const [completedChallenges, setCompletedChallenges] = useState(
+    JSON.parse(localStorage.getItem(localStorageKey)) || []
+  );
+  const [allChallengesCompleted, setAllChallengesCompleted] = useState(false);
+
+  useEffect(() => {
+    // Check if all challenges are completed
+    if (completedChallenges.length === initialChallenges.length) {
+      setAllChallengesCompleted(true);
+      // Show an alert or perform other actions here
+      alert("Congratulations! All challenges completed on this Day!");
+    } else {
+      setAllChallengesCompleted(false);
+    }
+  }, [completedChallenges]);
 
   const handleComplete = (challenge) => {
     if (!completedChallenges.includes(challenge)) {
-      setCompletedChallenges([...completedChallenges, challenge]);
+      const updatedCompletedChallenges = [...completedChallenges, challenge];
+      setCompletedChallenges(updatedCompletedChallenges);
+
+      // Save completed challenges to localStorage
+      localStorage.setItem(
+        localStorageKey,
+        JSON.stringify(updatedCompletedChallenges)
+      );
     }
   };
 
@@ -25,7 +51,7 @@ const IndividualDaysTask = () => {
       <h2>Today's Challenges</h2>
       <ul>
         {initialChallenges.map((challenge, index) => (
-          <li key={index}>
+          <li className="taks-li" key={index}>
             <span
               className={
                 completedChallenges.includes(challenge) ? "completed" : ""

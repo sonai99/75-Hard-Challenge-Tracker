@@ -26,6 +26,11 @@
     transition: background-color 0.3s;
   }
   
+  .day.completed {
+    background-color: green; /* You can change this to your desired color */
+    color: white; /* Text color for completed days */
+  }
+  
   .active {
     background-color: #d4edff;
   }
