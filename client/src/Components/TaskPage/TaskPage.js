@@ -6,7 +6,6 @@ const TaskPage = () => {
   return (
     <div>
       <TotalDaysList />
-      {/* <IndividualDaysTask /> */}
     </div>
   );
 };
